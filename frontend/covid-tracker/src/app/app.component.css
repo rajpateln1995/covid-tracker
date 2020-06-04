@@ -7,17 +7,20 @@ mat-form-field{
     width:100%;
 }
 
+
 .strip{
     text-align: center; 
     background-color: #bde0ff;
     font-size:20px;
     padding: 8px 0px;
+    box-shadow: 0 8px 17px -8px black;
+    border-radius: 10px;
 }
 
 .section{
     padding: 15px 25px;
     border-radius: 10px;
-    box-shadow: 0 8px 17px -8px #A3A5AE;
+    box-shadow: 0 8px 17px -8px black;
     background-color: #FFF;
 
 }
@@ -48,7 +51,7 @@ mat-form-field{
 
 
 
-.section h2{
+h2{
     color: #4C4E61;
 }
 

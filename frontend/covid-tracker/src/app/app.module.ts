@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import  { MatSelectModule } from '@angular/material/select';
-import { AnimatedDigitComponent } from './animated-digit/animated-digit.component';
 import { CountoModule }  from 'angular2-counto';
 import { CommaPipe } from './comma.pipe';
 import { NgxSpinnerModule } from "ngx-spinner";
@@ -14,7 +13,6 @@ import { NgxSpinnerModule } from "ngx-spinner";
 @NgModule({
   declarations: [
     AppComponent,
-    AnimatedDigitComponent,
     CommaPipe
   ],
   imports: [

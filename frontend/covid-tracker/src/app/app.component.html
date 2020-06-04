@@ -1,24 +1,30 @@
 <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#bde0ff" type = "ball-spin-clockwise-fade" [fullScreen] = "true"><p style="color: #bde0ff" > Loading... </p></ngx-spinner>
-<div class="container my-4" style="text-align: center;">
-  <mat-form-field>
-    <mat-label>Select Country</mat-label>
-    <mat-select [(value)]="selectedValue"> 
-      <mat-option *ngFor="let name of names" [value]="name" (click)="func(name)">
-        {{name}}
-      </mat-option> 
-    </mat-select>
-  </mat-form-field>
+<div style="text-align: center; padding: 0px 15px;">
+  <div class="container my-4" style="text-align: center; box-shadow: 0 8px 17px -8px black; background-color:white; border-radius: 10px; padding-top: 12px">
+    <mat-form-field>
+      <mat-label>Select Country</mat-label>
+      <mat-select [(value)]="selectedValue"> 
+        <mat-option *ngFor="let name of names" [value]="name" (click)="func(name)">
+          {{name}}
+        </mat-option> 
+      </mat-select>
+    </mat-form-field>
+  </div>
 </div>
-
-<img src="https://www.worldometers.info/img/flags/small/tn_uk-flag.gif">
-<p class="strip" style="font-weight: 500; color: #4c4e61;">Overall</p>
-<div class="container">
+<div class="container mb-5" style="text-align: center;">
+  <div style="display: inline-block; box-shadow: 0 8px 17px -8px black; background-color: white; border-radius: 10px;" class="p-2">
+    <h2 class="mb-0">{{selectedValue}}</h2>
+    <img *ngIf="showImg" [src]="data.img_url">
+  </div>
+</div>
+<p class="strip" style="font-weight: 500; color: #4c4e61; ">Overview of Covid-19</p>
+<div class="container mb-4">
   <div class="row">
-    <div class="col-md box"  >
+    <div class="col-md box">
       <div class="section col2">
         <h2>Total Cases</h2>
-        <div *ngIf="show" counto [step]="300" [countTo]="data.infected" [countFrom]="0" [duration]="3" (countoChange)="counto = $event" (countoEnd)="onCountoEnd()">
-          <p style="color: #007bff;">{{counto | addComma}}</p>
+        <div counto [step]="200" [countTo]="data.infected" [countFrom]="0" [duration]="3" (countoChange)="infected = $event" (countoEnd)="onCountoEnd()">
+          <p style="color: #007bff;">{{infected | addComma}}</p>
         </div>
         <p>Total number of people infected till date</p>
       </div>
@@ -26,8 +32,8 @@
     <div class="col-md box" >
       <div class="section col3">
         <h2>Total Deaths</h2>
-        <div *ngIf="show" counto [step]="300" [countTo]="data.deaths" [countFrom]="0" [duration]="3" (countoChange)="counto = $event" (countoEnd)="onCountoEnd()">
-          <p style="color: #dc3545;">{{counto | addComma}}</p>
+        <div counto [step]="200" [countTo]="data.deaths" [countFrom]="0" [duration]="3" (countoChange)="deaths = $event" (countoEnd)="onCountoEnd()">
+          <p style="color: #dc3545;">{{deaths | addComma}}</p>
         </div>
         <p>Total number of death caused till date</p>
       </div>
@@ -35,10 +41,45 @@
     <div class="col-md box" >
       <div class="section col1">
         <h2>Total Recovered</h2>
-        <div *ngIf="show" counto [step]="300" [countTo]="data.recovered" [countFrom]="0" [duration]="3" (countoChange)="counto = $event" (countoEnd)="onCountoEnd()">
-          <p style="color: #28a745;">{{counto | addComma}}</p>
+        <div counto [step]="200" [countTo]="data.recovered" [countFrom]="0" [duration]="3" (countoChange)="recovered = $event" (countoEnd)="onCountoEnd()">
+          <p style="color: #28a745;">{{recovered | addComma}}</p>
         </div>
         <p>Total number of people recovered till date</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="india">
+  <p class="strip" style="font-weight: 500; color: #4c4e61;">Total count on {{date}}</p>
+  <div class="container">
+    <div class="row">
+      <div class="col-md box">
+        <div class="section col2">
+          <h2>Total Cases</h2>
+          <div counto [step]="200" [countTo]="confirm" [countFrom]="0" [duration]="3" (countoChange)="confirmed = $event" (countoEnd)="onCountoEnd()">
+            <p style="color: #007bff;">{{confirmed | addComma}}</p>
+          </div>
+          <p>Total number of people infected on {{date}}</p>
+        </div>
+      </div>
+      <div class="col-md box" >
+        <div class="section col3">
+          <h2>Total Deaths</h2>
+          <div counto [step]="200" [countTo]="decease" [countFrom]="0" [duration]="3" (countoChange)="deceased = $event" (countoEnd)="onCountoEnd()">
+            <p style="color: #dc3545;">{{deceased | addComma}}</p>
+          </div>
+          <p>Total number of death caused on {{date}}</p>
+        </div>
+      </div>
+      <div class="col-md box" >
+        <div class="section col1">
+          <h2>Total Recovered</h2>
+          <div counto [step]="200" [countTo]="recovery" [countFrom]="0" [duration]="3" (countoChange)="recover = $event" (countoEnd)="onCountoEnd()">
+            <p style="color: #28a745;">{{recover | addComma}}</p>
+          </div>
+          <p>Total number of people recovered on {{date}}</p>
+        </div>
       </div>
     </div>
   </div>

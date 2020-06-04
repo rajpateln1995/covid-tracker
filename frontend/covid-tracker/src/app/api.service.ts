@@ -18,4 +18,7 @@ export class ApiService {
     return this.http.get(this.url + "/" + name);
   }
 
+  getdailydata(){
+    return this.http.get("https://api.covid19india.org/data.json")
+  }
 }
