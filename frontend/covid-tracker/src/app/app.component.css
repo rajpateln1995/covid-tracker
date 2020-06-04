@@ -1,0 +1,56 @@
+
+.box{
+    padding: 15px 15px;
+}
+
+mat-form-field{
+    width:100%;
+}
+
+.strip{
+    text-align: center; 
+    background-color: #bde0ff;
+    font-size:20px;
+    padding: 8px 0px;
+}
+
+.section{
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 0 8px 17px -8px #A3A5AE;
+    background-color: #FFF;
+
+}
+
+.section p{
+    font-size: 20px;
+    color: #A3A5AE;
+    text-align: center;
+}
+
+.section h2{
+    text-align:center;
+}
+
+.section div{
+    text-align: right;
+}
+.col1{
+    border-top: 5px solid #28a745;
+}
+.col2{
+    border-top: 5px solid #007bff;
+}
+.col3{
+    border-top: 5px solid #dc3545;
+}
+
+
+
+
+.section h2{
+    color: #4C4E61;
+}
+
+
+
