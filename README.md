@@ -1,3 +1,3 @@
 # covid-tracker
- <p>Web Scrapping practice project.</p>
+ <p>Web Scrapping project.</p>
  <p>Data is Fetched from https://www.worldometers.info/coronavirus/</p>
